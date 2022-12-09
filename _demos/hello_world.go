@@ -1,3 +1,4 @@
+//go:build ignore
 // +build ignore
 
 // Copyright 2020 The TCell Authors
@@ -41,11 +42,17 @@ func emitStr(s tcell.Screen, x, y int, style tcell.Style, str string) {
 }
 
 func displayHelloWorld(s tcell.Screen) {
-	w, h := s.Size()
-	s.Clear()
 	style := tcell.StyleDefault.Foreground(tcell.ColorCadetBlue.TrueColor()).Background(tcell.ColorWhite)
-	emitStr(s, w/2-7, h/2, style, "Hello, World!")
-	emitStr(s, w/2-9, h/2+1, tcell.StyleDefault, "Press ESC to exit.")
+	s.Clear()
+	emitStr(s, 6, 5, style, "あいうえお")
+	emitStr(s, 6, 6, style, "あいうえお")
+	emitStr(s, 6, 7, style, "あいうえお")
+	s.Show()
+	emitStr(s, 6, 6, style, "          ")
+	emitStr(s, 8, 6, style, "a")
+	emitStr(s, 13, 6, style, "b")
+	emitStr(s, 8, 7, style, "a")
+	emitStr(s, 13, 7, style, "b")
 	s.Show()
 }
 
